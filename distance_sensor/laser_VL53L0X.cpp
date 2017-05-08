@@ -47,7 +47,24 @@ int laser_VL53L0X::get_distance(bool Is_set_0)
            return sensor.readRangeSingleMillimeters()-base_distance;
           
         }
-        
+int laser_VL53L0X::get_distance(      bool Is_set_0, \
+                                      int lower_distance,\
+                                      int upper_distance  )
+        {   
+          if(sensor.readRangeSingleMillimeters()>lower_distance && sensor.readRangeSingleMillimeters()<upper_distance)
+              {
+                  if(Is_set_0==1) 
+                     {
+                         if(Is_set_base==0)  
+                          {
+                             base_distance=sensor.readRangeSingleMillimeters();
+                             Is_set_base=true;
+                          }
+                      }
+               }
+           return sensor.readRangeSingleMillimeters()-base_distance;
+          
+        } 
 
 int laser_VL53L0X::chaeck_distance(int distance){}
 
