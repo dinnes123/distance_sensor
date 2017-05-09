@@ -1,15 +1,8 @@
 
 /*
-	distance_sensor version 1.0  2017/5/7
-	//-----------------------------------------------
-	distance_sensor version 1.0  2017/5/7  7:30
-                    adding function
-                    1. int get_distance( bool Is_set_0, \
-                                      int lower_distance,\
-                                      int upper_distance);   
-                                             if bool Is_set_0==1 than the distance to which device are receiving will be set to zero
-                                             int lower_distance :the range of most lower distance
-                                             int lower_distance :the range of most upper distance
+	該檔案是距離相關的感測器的標頭檔，引入後，就可以使用像是3pin超音波、4pin超音波、雷射測距儀...等基本的感測器
+
+        編輯日期 2017/5/7 張恩典 
 */
 
 #ifndef SENSOE_H
@@ -78,8 +71,6 @@ class laser_VL53L0X : public sensor
                     VL53L0X sensor;
                     bool Is_set_base=false;
                     int base_distance;
-                    int upper_distance;
-                    int lower_distance;
                     
                     int chaeck_distance(int distance);
                 public:
@@ -87,9 +78,6 @@ class laser_VL53L0X : public sensor
                     ~laser_VL53L0X();
                     int get_distance();
                     int get_distance(bool Is_set_0);
-                    int get_distance( bool Is_set_0, \
-                                      int lower_distance,\
-                                      int upper_distance);
           };
            
 #endif
