@@ -1,8 +1,24 @@
 
 /*
-	該檔案是距離相關的感測器的標頭檔，引入後，就可以使用像是3pin超音波、4pin超音波、雷射測距儀...等基本的感測器
-
-        編輯日期 2017/5/7 張恩典 
+	distance_sensor version 1.0  2017/5/7
+	//-----------------------------------------------
+	distance_sensor version 1.1  2017/5/7  7:30
+                    adding function
+                    1. int get_distance( bool Is_set_0, \
+                                      int lower_distance,\
+                                      int upper_distance);   
+                                             if bool Is_set_0==1 than the distance to which device are receiving will be set to zero
+                                             int lower_distance :the range of most lower distance
+                                             int lower_distance :the range of most upper distance
+                                             
+    //-----------------------------------------------
+     distance_sensor version 1.2  2017/5/9
+     增加新功能：
+                  1. int reset_base(); 重制歸零的動作，可以透過檢查變數確認是否歸零 
+                  2. Is_set_base  若為TRUE則代表處於歸零狀態，若為FALSE則為尚未歸零的狀態 
+     //----------------------------------------------
+     distance_sensor version 1.3   2017/5/9
+                  1.改變初始化方式，需先呼叫setup函數才可以呼叫get_distance函數 
 */
 
 #ifndef SENSOE_H
@@ -69,15 +85,22 @@ class laser_VL53L0X : public sensor
           {
                private:
                     VL53L0X sensor;
-                    bool Is_set_base=false;
-                    int base_distance;
+                    int upper_distance;
+                    int lower_distance;
                     
                     int chaeck_distance(int distance);
                 public:
+                    int base_distance;
+                    bool Is_set_base=false;
 					laser_VL53L0X(int Address, int Pin);
                     ~laser_VL53L0X();
+                    int setup(int Address, int Pin);
                     int get_distance();
                     int get_distance(bool Is_set_0);
+                    int get_distance( bool Is_set_0, \
+                                      int lower_distance,\
+                                      int upper_distance);
+                    int reset_base();
           };
            
 #endif
