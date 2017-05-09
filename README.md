@@ -5,13 +5,14 @@
 	distance_sensor version 1.0  2017/5/7
 	//-----------------------------------------------
 	distance_sensor version 1.1  2017/5/7  7:30
-                    adding function
-                    1. int get_distance( bool Is_set_0, \
-                                      int lower_distance,\
-                                      int upper_distance);   
-                                             if bool Is_set_0==1 than the distance to which device are receiving will be set to zero
-                                             int lower_distance :the range of most lower distance
-                                             int lower_distance :the range of most upper distance
+	    adding function
+	    1. int get_distance( bool Is_set_0, \
+			      int lower_distance,\
+			      int upper_distance);   
+				     if bool Is_set_0==1 than the distance to which device are receiving will be set to zero
+				     int lower_distance :the range of most lower distance
+				     int lower_distance :the range of most upper distance
+				     
                                              
     //-----------------------------------------------
      distance_sensor version 1.2  2017/5/9
