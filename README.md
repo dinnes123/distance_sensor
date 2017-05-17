@@ -22,5 +22,5 @@
                   2. Is_set_base  若為TRUE則代表處於歸零狀態，若為FALSE則為尚未歸零的狀態 
      //----------------------------------------------
      distance_sensor version 1.3   2017/5/9
-                  1.改變初始化方式，需先呼叫setup函數才可以呼叫get_distance函數 
+                  1.VL53L0X 改變初始化方式，需先呼叫set_up()後函數才可以呼叫get_distance函數，詳情請參考草稿碼 
 */
